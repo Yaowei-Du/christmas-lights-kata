@@ -26,6 +26,10 @@ public class ChristmasLightsKata {
         executeRangeOf(x1, y1, x2, y2, LightCommand.OFF);
     }
 
+    public void toggle(int x1, int y1, int x2, int y2) {
+        executeRangeOf(x1, y1, x2, y2, LightCommand.TOGGLE);
+    }
+
     private void executeRangeOf(int x1, int y1, int x2, int y2, LightCommand command) {
         for (int i = x1; i <= x2; i++) {
             for (int j = y1; j <= y2; j++) {

@@ -15,6 +15,9 @@ public class Light {
             case OFF:
                 turnOff();
                 break;
+            case TOGGLE:
+                toggle();
+                break;
         }
     }
 
@@ -28,5 +31,10 @@ public class Light {
 
     private void turnOff() {
         this.status = LightStatus.OFF;
+    }
+
+    private void toggle() {
+        if (this.status == LightStatus.ON) this.status = LightStatus.OFF;
+        else if (this.status == LightStatus.OFF) this.status = LightStatus.ON;
     }
 }
