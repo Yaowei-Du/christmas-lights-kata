@@ -1,0 +1,38 @@
+plugins {
+    id "application"
+}
+apply plugin: "java"
+
+// Java target version
+sourceCompatibility = 1.8
+
+group 'com.company'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompileOnly 'junit:junit:4.12'
+    testRuntimeOnly 'junit:junit:4.12'
+}
+
+ext {
+    javaMainClass = "com.company.Main"
+}
+
+application {
+    mainClassName = javaMainClass
+}
+
+test {
+    // Always run tests, even when nothing changed.
+    dependsOn 'cleanTest'
+
+    // Show test results.
+    testLogging {
+        events "passed", "skipped", "failed"
+    }
+}
+
