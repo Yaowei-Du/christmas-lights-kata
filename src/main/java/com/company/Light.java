@@ -7,15 +7,26 @@ public class Light {
         this.status = LightStatus.OFF;
     }
 
-    public void turnOn() {
-        this.status = LightStatus.ON;
-    }
-
-    public void turnOff() {
-        this.status = LightStatus.OFF;
+    public void execute(LightCommand command) {
+        switch (command) {
+            case ON:
+                turnOn();
+                break;
+            case OFF:
+                turnOff();
+                break;
+        }
     }
 
     public LightStatus getStatus() {
         return status;
+    }
+
+    private void turnOn() {
+        this.status = LightStatus.ON;
+    }
+
+    private void turnOff() {
+        this.status = LightStatus.OFF;
     }
 }

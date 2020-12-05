@@ -19,17 +19,17 @@ public class ChristmasLightsKata {
     }
 
     public void turnOn(int x1, int y1, int x2, int y2) {
-        for (int i = x1; i <= x2; i++) {
-            for (int j = y1; j <= y2; j++) {
-                lights[i][j].turnOn();
-            }
-        }
+        executeRangeOf(x1, y1, x2, y2, LightCommand.ON);
     }
 
     public void turnOff(int x1, int y1, int x2, int y2) {
+        executeRangeOf(x1, y1, x2, y2, LightCommand.OFF);
+    }
+
+    private void executeRangeOf(int x1, int y1, int x2, int y2, LightCommand command) {
         for (int i = x1; i <= x2; i++) {
             for (int j = y1; j <= y2; j++) {
-                lights[i][j].turnOff();
+                lights[i][j].execute(command);
             }
         }
     }
