@@ -7,6 +7,10 @@ public class Light {
         this.status = LightStatus.OFF;
     }
 
+    public void turnOn() {
+        this.status = LightStatus.ON;
+    }
+
     public LightStatus getStatus() {
         return status;
     }

@@ -2,7 +2,7 @@ package com.company;
 
 public class ChristmasLightsKata {
 
-    private Light[][] lights;
+    private final Light[][] lights;
 
     public ChristmasLightsKata(int gridX, int gridY) {
         lights = new Light[gridX][gridY];
@@ -16,5 +16,13 @@ public class ChristmasLightsKata {
 
     public Light getLight(int x, int y) {
         return lights[x][y];
+    }
+
+    public void turnOn(int x1, int y1, int x2, int y2) {
+        for (int i = x1; i <= x2; i++) {
+            for (int j = y1; j <= y2; j++) {
+                lights[i][j].turnOn();
+            }
+        }
     }
 }
