@@ -1,5 +1,6 @@
 plugins {
     id "application"
+    id 'idea'
 }
 apply plugin: "java"
 
@@ -14,8 +15,8 @@ repositories {
 }
 
 dependencies {
-    testCompileOnly 'junit:junit:4.12'
-    testRuntimeOnly 'junit:junit:4.12'
+    testImplementation(platform('org.junit:junit-bom:5.7.0'))
+    testImplementation('org.junit.jupiter:junit-jupiter')
 }
 
 ext {
@@ -27,10 +28,7 @@ application {
 }
 
 test {
-    // Always run tests, even when nothing changed.
-    dependsOn 'cleanTest'
-
-    // Show test results.
+    useJUnitPlatform()
     testLogging {
         events "passed", "skipped", "failed"
     }
