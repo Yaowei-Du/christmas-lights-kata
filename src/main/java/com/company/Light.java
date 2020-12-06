@@ -7,6 +7,10 @@ public class Light {
         this.status = LightStatus.OFF;
     }
 
+    public Light(LightStatus status) {
+        this.status = status;
+    }
+
     public void execute(LightCommand command) {
         switch (command) {
             case ON:
